@@ -1,28 +1,20 @@
-all_assignments = [
+all_assignments = {}
 
-]
-
-def add():
-    assignment_info = []
+def add(all_assignments):
     name = input("Name: ")
-    assignment_info.append(name)
-    days_until_due = int(input("Day's until due: "))
-    assignment_info.append(days_until_due)
     points = int(input("Points: "))
-    assignment_info.append(points)
-    all_assignments.append(assignment_info)
-    
+    all_assignments[points] = name
 
-def schedule():
-    sorted(all_assignments, key=lambda assignment_info: assignment_info[2])
+def schedule(all_assignments):
+    sorted(all_assignments.items(), key=lambda item: item[1])
     print(all_assignments)
 
-def main_screen():
+def main_screen(all_assignments):
     select_screen = input("Type 1 to add an assignment or 2 to see assignments: ")
     if select_screen == "1":
-        add()
+        add(all_assignments)
     elif select_screen == "2":
-        schedule()
+        schedule(all_assignments)
 
 while True:
-    main_screen()
+    main_screen(all_assignments)
