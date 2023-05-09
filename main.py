@@ -6,9 +6,10 @@ def add(all_assignments):
     all_assignments[points] = name
 
 def schedule(all_assignments):
-    list_form = sorted(all_assignments.items(), key=lambda x:x[1])
-    new_dict = dict(list_form)
-    print(new_dict)
+    print("Here are your assignments organized by points: ")
+    list_form = sorted(all_assignments.items(), key=lambda x:x[0], reverse=True)
+    for index in range(len(list_form)):
+        print(list_form[index])
 
 def main_screen(all_assignments):
     select_screen = input("Type 1 to add an assignment or 2 to see assignments: ")
@@ -19,7 +20,3 @@ def main_screen(all_assignments):
 
 while True:
     main_screen(all_assignments)
-
-
-
-    
