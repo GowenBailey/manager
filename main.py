@@ -19,16 +19,15 @@ def main_screen(all_assignments, list_form):
     elif select_screen == "2":
         schedule(all_assignments, list_form)
     elif select_screen == "3":
-        remove_assignment(list_form, all_assignments)
+        remove_assignment(list_form)
 
-def remove_assignment(list_form, all_assignments):
+def remove_assignment(list_form):
     print("Choose an Assignment to Remove: ")
+    list_form = sorted(all_assignments.items(), key=lambda x:x[0], reverse=True)
     for index in range(len(list_form)):
-        print(list_form(index))
-    removed_list = input("Type by name: ")
-    for removed_list in list_form:
-        list_form.remove(removed_list)
-
+        print(list_form[index])
+    removed = input("Type the name here: ")
+    
 
 while True:
     main_screen(all_assignments, list_form)
